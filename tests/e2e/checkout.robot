@@ -5,8 +5,9 @@ Resource          ../../resources/pages/inventory_page.robot
 Resource          ../../resources/pages/cart_page.robot
 Resource          ../../resources/pages/checkout_page.robot
 Resource          ../../resources/data/users.robot
-Suite Setup       Open Browser And Login
-Suite Teardown    Close Test Browser
+# Each test gets a fresh logged-in browser so no test depends on the page the previous one ended on.
+Test Setup        Open Browser And Login
+Test Teardown     Close Test Browser
 Test Tags         checkout    regression
 
 *** Test Cases ***
@@ -34,11 +35,9 @@ Checkout Fails Without First Name
 
 Checkout Fails Without Postal Code
     [Documentation]    Verify checkout validation for postal code
-    [Setup]    Open Browser And Login
     Add Product To Cart By Name    Sauce Labs Onesie
     Open Cart
     Click Checkout
     Fill Checkout Information    ${CHECKOUT_FIRST}    ${CHECKOUT_LAST}    ${EMPTY}
     Click Continue
     Checkout Error Should Be Visible    Postal Code is required
-    [Teardown]    Close Test Browser

@@ -21,11 +21,13 @@ Get Inventory Item Count
 Add Product To Cart By Name
     [Arguments]    ${product_name}
     ${button_id}=    Set Variable    add-to-cart-${product_name.lower().replace(' ', '-')}
+    Wait Until Element Is Visible    css:[data-test="${button_id}"]    ${TIMEOUT}
     Click Button    css:[data-test="${button_id}"]
 
 Remove Product From Cart By Name
     [Arguments]    ${product_name}
     ${button_id}=    Set Variable    remove-${product_name.lower().replace(' ', '-')}
+    Wait Until Element Is Visible    css:[data-test="${button_id}"]    ${TIMEOUT}
     Click Button    css:[data-test="${button_id}"]
 
 Get Cart Badge Count
@@ -40,6 +42,7 @@ Get Cart Badge Count
 Open Cart
     Click Element    ${CART_LINK}
     Wait Until Location Contains    cart    ${TIMEOUT}
+    Wait Until Element Is Visible    css:.cart_list    ${TIMEOUT}
 
 Sort Products By
     [Arguments]    ${option}

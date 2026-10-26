@@ -37,3 +37,5 @@ Login Should Fail With Error
 
 Login Should Succeed
     Wait Until Location Contains    inventory    ${TIMEOUT}
+    # The product list renders client-side after the URL changes.
+    Wait Until Element Is Visible    css:.inventory_list    ${TIMEOUT}

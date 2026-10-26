@@ -26,6 +26,7 @@ Cart Should Not Contain Product
     Element Should Not Contain    ${CART_LIST}    ${product_name}
 
 Click Checkout
+    Wait Until Element Is Visible    ${CHECKOUT_BUTTON}    ${TIMEOUT}
     Click Button    ${CHECKOUT_BUTTON}
     Wait Until Location Contains    checkout-step-one    ${TIMEOUT}
 

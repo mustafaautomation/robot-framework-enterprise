@@ -15,6 +15,7 @@ ${CHECKOUT_ERROR}         css:[data-test="error"]
 *** Keywords ***
 Fill Checkout Information
     [Arguments]    ${first_name}    ${last_name}    ${postal_code}
+    Wait Until Element Is Visible    ${FIRST_NAME_INPUT}    ${TIMEOUT}
     Input Text    ${FIRST_NAME_INPUT}    ${first_name}
     Input Text    ${LAST_NAME_INPUT}    ${last_name}
     Input Text    ${POSTAL_CODE_INPUT}    ${postal_code}
@@ -30,6 +31,7 @@ Order Should Be Complete
     Element Should Contain    ${COMPLETE_HEADER}    Thank you for your order
 
 Get Order Total
+    Wait Until Element Is Visible    ${SUMMARY_TOTAL}    ${TIMEOUT}
     ${total_text}=    Get Text    ${SUMMARY_TOTAL}
     RETURN    ${total_text}
 
