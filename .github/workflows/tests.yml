@@ -56,3 +56,32 @@ jobs:
           name: api-test-results
           path: results/api/
           retention-days: 30
+
+  ui-tests:
+    name: UI Tests (headless Chrome)
+    runs-on: ubuntu-latest
+    needs: validate
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      # Chrome is preinstalled on ubuntu-latest; Selenium Manager fetches a matching driver.
+      - name: Run UI tests in parallel
+        run: pabot --processes 3 --outputdir results/ui tests/e2e/
+
+      - name: Upload results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ui-test-results
+          path: results/ui/
+          retention-days: 30

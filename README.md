@@ -5,7 +5,7 @@
 [![Robot Framework](https://img.shields.io/badge/Robot_Framework-7.1-00B0D8.svg)](https://robotframework.org)
 [![Python](https://img.shields.io/badge/Python-3.12-3776AB.svg?logo=python&logoColor=white)](https://python.org)
 
-Enterprise-grade Robot Framework test automation covering E2E browser testing (SeleniumLibrary) and API testing (RequestsLibrary). Page Object Model architecture, data-driven tests, and CI/CD integration.
+Robot Framework test automation project covering browser tests (SeleniumLibrary, against the public SauceDemo site) and API tests (RequestsLibrary, against reqres.in). Keyword-driven page objects, data-driven tests and parallel runs with Pabot. CI runs all 20 tests (UI in headless Chrome) and fails on any test failure.
 
 ---
 
@@ -34,7 +34,7 @@ pip install -r requirements.txt
 # Run API tests (no browser needed)
 robot --outputdir results --include api tests/api/
 
-# Run all tests (requires Chrome/Chromium)
+# Run all tests (requires Google Chrome; Selenium Manager fetches the driver)
 robot --outputdir results tests/
 
 # Run by tag
