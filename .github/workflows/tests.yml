@@ -26,8 +26,8 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
-      - name: Verify Robot Framework installed
-        run: robot --version
+      - name: Dry-run all suites (syntax and keyword resolution)
+        run: robot --dryrun --outputdir results/dryrun tests/
 
   api-tests:
     name: API Tests
@@ -48,7 +48,6 @@ jobs:
 
       - name: Run API tests
         run: robot --outputdir results/api --include api tests/api/
-        continue-on-error: true
 
       - name: Upload results
         if: always()
