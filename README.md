@@ -2,8 +2,8 @@
 
 [![Tests](https://github.com/mustafaautomation/robot-framework-enterprise/actions/workflows/tests.yml/badge.svg)](https://github.com/mustafaautomation/robot-framework-enterprise/actions)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Robot Framework](https://img.shields.io/badge/Robot_Framework-7.1-00B0D8.svg)](https://robotframework.org)
-[![Python](https://img.shields.io/badge/Python-3.12-3776AB.svg?logo=python&logoColor=white)](https://python.org)
+[![Robot Framework](https://img.shields.io/badge/Robot_Framework-7.5-00B0D8.svg)](https://robotframework.org)
+[![Python](https://img.shields.io/badge/Python-3.13-3776AB.svg?logo=python&logoColor=white)](https://python.org)
 
 Robot Framework test automation project covering browser tests (SeleniumLibrary, against the public SauceDemo site) and API tests (RequestsLibrary, against reqres.in). Keyword-driven page objects, data-driven tests and parallel runs with Pabot. CI runs all 20 tests (UI in headless Chrome) and fails on any test failure.
 
